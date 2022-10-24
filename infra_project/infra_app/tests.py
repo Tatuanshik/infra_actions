@@ -6,6 +6,8 @@ from django.test import Client, TestCase
 class StaticPagesURLTests(TestCase):
     def setUp(self):
         self.guest_client = Client()
+        self.authorized_client = Client()
+        self.authorized_client.force_login(self.user)
 
     def test_about_url_exists_at_desired_location(self):
         """Проверка доступности страниц."""
