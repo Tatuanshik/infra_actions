@@ -6,8 +6,6 @@ from django.test import Client, TestCase
 class StaticPagesURLTests(TestCase):
     def setUp(self):
         self.guest_client = Client()
-        self.authorized_client = Client()
-        self.authorized_client.force_login(self.user)
 
     def test_about_url_exists_at_desired_location(self):
         """Проверка доступности страниц."""
@@ -23,4 +21,4 @@ class StaticPagesURLTests(TestCase):
         self.assertContains(response, 'У меня получилось!')
 
         response = self.guest_client.get('/second_page/')
-        self.assertContains(response, 'А это вторая страница!')
+        self.assertContains(response, 'А это вторая страница')
